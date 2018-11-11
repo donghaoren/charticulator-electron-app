@@ -1,0 +1,59 @@
+####################################################################################################
+# Charticulator configuration file
+####################################################################################################
+
+#------------------------------------------------
+# Configure extensions if any
+#------------------------------------------------
+
+Extensions:
+  - script: extensions/powerbi_visual_builder.js
+    initialize: |
+      let extension = new CharticulatorPowerBIVisualBuilder.PowerBIVisualBuilder('scripts/container.bundle.js');
+      application.addExtension(extension);
+
+#------------------------------------------------
+# Configure sample datasets if any
+#------------------------------------------------
+
+# SampleDatasets:
+#   - name: DatasetName
+#     description: Dataset description
+#     tables:
+#       - name: TableName
+#         type: csv/tsv
+#         url: "relative/absolute url to the file"
+
+#------------------------------------------------
+# Configure the map service
+#------------------------------------------------
+MapService:
+  ## Option 1: Use Bing Map Service
+  ##   a. Obtain an API key here: https://msdn.microsoft.com/en-us/library/ff428642.aspx
+  ##   b. Uncomment the following:
+
+  # provider: Bing
+  # apiKey: "TODO: put your api key here"
+
+  ## Option 2: Use Google Map Service
+  ##   a. Obtain an API key here: https://developers.google.com/maps/documentation/static-maps/
+  ##   b. Uncomment the following:
+
+  # provider: Google
+  # apiKey: "TODO: put your api key here"
+
+
+#------------------------------------------------
+# Configure the display of legal notices
+#------------------------------------------------
+LegalNotices:
+  ## The privacy statement and trademark for the "New" panel
+  ## Below is the statement we use in our Microsoft release.
+  privacyStatementHTML: |
+    <p>
+      <b>Privacy Notice:</b>
+      This is a standalone desktop application built from Charticulator source code. No data is sent to Microsoft.
+    </p>
+    <p>
+      Copyright 2018 Microsoft Corporation
+    </p>

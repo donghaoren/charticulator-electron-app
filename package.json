@@ -1,0 +1,70 @@
+{
+  "name": "charticulator-electron-app",
+  "private": true,
+  "author": {
+    "name": "Donghao Ren",
+    "email": "donghao.ren@gmail.com"
+  },
+  "homepage": "https://charticulator.com",
+  "version": "1.0.0",
+  "description": "Create Custom Charts Interactively",
+  "main": "app/index.js",
+  "devDependencies": {
+    "electron": "3.0.8",
+    "electron-builder": "20.33.2",
+    "multirun": "^3.0.2"
+  },
+  "workspaces": [
+    "charticulator",
+    "charticulator-extensions/powerbi-visual-builder"
+  ],
+  "scripts": {
+    "start": "electron app",
+    "build": "node build.js",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.Charticulator",
+    "productName": "Charticulator",
+    "directories": {
+      "app": "app",
+      "buildResources": "resources",
+      "output": "bundle"
+    },
+    "linux": {
+      "category": "Graphics",
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "category": "public.app-category.graphics-design"
+    }
+  },
+  "license": "MIT"
+}

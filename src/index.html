@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1200, user-scalable=no" />
+
+    <link rel="stylesheet" href="styles/app.css" type="text/css" />
+    <link rel="stylesheet" href="fonts.css" type="text/css" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <title>Charticulator</title>
+  </head>
+
+  <body>
+    <div id="container"></div>
+
+    <script src="data/config.js"></script>
+    <script src="scripts/app.bundle.js"></script>
+
+    <script type="text/javascript">
+      var application = new Charticulator.Application();
+      application.initialize(
+        CHARTICULATOR_CONFIG,
+        "container",
+        CHARTICULATOR_CONFIG.WorkerURL
+      );
+    </script>
+  </body>
+</html>
