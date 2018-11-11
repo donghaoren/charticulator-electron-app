@@ -1,3 +1,6 @@
 [submodule "charticulator"]
 	path = charticulator
 	url = https://github.com/Microsoft/charticulator.git
+[submodule "charticulator-extensions"]
+	path = charticulator-extensions
+	url = https://github.com/Microsoft/charticulator-extensions
