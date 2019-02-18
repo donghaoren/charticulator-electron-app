@@ -24,7 +24,7 @@ script:
   - yarn release
 
 before_deploy:
-  - git tag "`node release.js --name`"
+  - git tag release-"`node release.js --name`"
 
 deploy:
   provider: releases
@@ -36,3 +36,8 @@ deploy:
   name: "`node release.js --name`"
   on:
     branch: master
+
+branches:
+  only:
+    - master
+    - /^release*$/
