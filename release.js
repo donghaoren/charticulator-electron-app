@@ -1,7 +1,11 @@
 const fs = require("fs-extra");
 
 async function createRelease() {
-  const buildNumber = 0;
+  // Get build number from travis
+  let buildNumber = "0";
+  if (process.env["TRAVIS_BUILD_NUMBER"]) {
+    buildNumber = process.env["TRAVIS_BUILD_NUMBER"];
+  }
   // Remove existing
   await fs.remove("release");
   // Get version
@@ -37,4 +41,16 @@ async function createRelease() {
   }
 }
 
-createRelease();
+if (process.argv.indexOf("--name") >= 0) {
+  let buildNumber = "0";
+  if (process.env["TRAVIS_BUILD_NUMBER"]) {
+    buildNumber = process.env["TRAVIS_BUILD_NUMBER"];
+  }
+  const package = JSON.parse(
+    fs.readFileSync("charticulator/package.json", "utf-8")
+  );
+  const version = package.version;
+  console.log(`v${version}-build-${buildNumber}`);
+} else {
+  createRelease();
+}
