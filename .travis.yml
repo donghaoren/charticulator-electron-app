@@ -1,9 +1,14 @@
 os: osx
+
 language: node_js
+
 node_js: 10
 
-before_install:
-  - brew install wine rpm
+addons:
+  homebrew:
+    packages:
+      - wine
+      - rpm
 
 install:
   - npm install -g yarn

@@ -27,10 +27,7 @@ async function createRelease() {
       `${common_prefix}-Linux-x86_64.AppImage`
     ],
     [`Charticulator_${version}_amd64.deb`, `${common_prefix}-Linux-x86_64.deb`],
-    [
-      `Charticulator-${version}-x86_64.amd64.rpm`,
-      `${common_prefix}-Linux-x86_64.rpm`
-    ]
+    [`Charticulator-${version}.x86_64.rpm`, `${common_prefix}-Linux-x86_64.rpm`]
   ];
   for (const [input, output] of files) {
     if (await fs.exists("bundle/" + input)) {
