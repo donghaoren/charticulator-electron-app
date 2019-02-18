@@ -3,7 +3,8 @@ language: node_js
 node_js: 10
 
 before_install:
-  - brew install wine
+  - brew install wine rpmbuild
+
 install:
   - npm install -g yarn
 
@@ -15,3 +16,13 @@ script:
   - yarn dist:mac
   - yarn dist:win
   - yarn dist:linux
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "gLFH68MZjd8EESuiHegtaSS22b5vLSX2cbNIbrQjVb1crH8zAOwhov3lfhL5xzeUbou8ZAfMvOpSVd0rOFjOYnk52pGOB2hZWnpvT2ZwOjVx925CDWHh9wUE7+/kOo4igwBHrvRXLVD5Ozb8EwX3h9cEk5QiSkHP5bouxLOdbK7LaL+6T4Z88msUkKqsugrUEJVlOCxypwy1EJX9bkze9W8KWln7OLhjopv8h5I9TWh8GQGmJZLTKmcGNxTJjMpgCCwvWRleA+eKULotPrwwVJ+2Xs3bNRurOTyWyDUJ71xPsQkTQTpR1icnKW+fLLmQcOyma+ICr1aq/V2vNPmC1phxX9MPciUNr24fWqYS0hcp6O1Xce2U4yX0bbTQHeW8JQ+k2tIeQ6NCIlcPvEjvUo0sjHGU4r63k5NhWENdJLWx2eRWRKXYwjTBIYmW+7ynvE4jVBwb3I2icsF4Z1BQwT6jUszg8LRbHaIEWssy+EFaNNs7Hgb5rr2aTPne2xiM6GAOHsT8SA8iEyiOX9/39E6I55890g/kf2RgitsX8+uRxfD4DG+6H07t2jwULbDa0xFcNuJ9t08WpvpkbysK+9i7hj+b6n0uq/ntq/HXps1Lfkl86LUA7z4vOY36lOn/6ezmqYZ9vyLvCOvAXm0ekPExJGc5Mw1ibo47M4LQ26Y="
+  file_glob: true
+  file: release/*
+  skip_cleanup: true
+  on:
+    tags: true
